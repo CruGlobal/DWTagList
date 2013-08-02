@@ -8,17 +8,17 @@
 #import "DWTagList.h"
 #import <QuartzCore/QuartzCore.h>
 
-#define CORNER_RADIUS 10.0f
-#define LABEL_MARGIN_DEFAULT 5.0f
-#define BOTTOM_MARGIN_DEFAULT 5.0f
-#define FONT_SIZE_DEFAULT 13.0f
-#define HORIZONTAL_PADDING_DEFAULT 7.0f
-#define VERTICAL_PADDING_DEFAULT 3.0f
-#define BACKGROUND_COLOR [UIColor colorWithRed:0.93 green:0.93 blue:0.93 alpha:1.00]
-#define TEXT_COLOR [UIColor blackColor]
+#define CORNER_RADIUS 2.0f
+#define LABEL_MARGIN_DEFAULT 6.0f
+#define BOTTOM_MARGIN_DEFAULT 6.0f
+#define FONT_SIZE_DEFAULT 12.0f
+#define HORIZONTAL_PADDING_DEFAULT 8.0f
+#define VERTICAL_PADDING_DEFAULT 5.0f
+#define BACKGROUND_COLOR [UIColor colorWithRed:0.95 green:0.95 blue:0.93 alpha:1.00]
+#define TEXT_COLOR [UIColor colorWithRed:0.20 green:0.20 blue:0.20 alpha:1.00]
 #define TEXT_SHADOW_COLOR [UIColor whiteColor]
 #define TEXT_SHADOW_OFFSET CGSizeMake(0.0f, 1.0f)
-#define BORDER_COLOR [UIColor lightGrayColor].CGColor
+#define BORDER_COLOR [UIColor whiteColor].CGColor
 #define BORDER_WIDTH 1.0f
 #define HIGHLIGHTED_BACKGROUND_COLOR [UIColor colorWithRed:0.40 green:0.80 blue:1.00 alpha:0.5]
 #define DEFAULT_AUTOMATIC_RESIZE NO
@@ -259,6 +259,13 @@
         [self.layer setCornerRadius:CORNER_RADIUS];
         [self.layer setBorderColor:BORDER_COLOR];
         [self.layer setBorderWidth: BORDER_WIDTH];
+		
+		//Drop shadow : black with a 2px y-offset and a 2px blur, at 0.75 opacity
+		[self.layer setShadowColor:[[UIColor blackColor] CGColor]];
+		[self.layer setShadowOffset:CGSizeMake(0.0f, 1.0f)];
+		[self.layer setShadowRadius:1.0f];
+		[self.layer setShadowOpacity:0.75];
+		
     }
     return self;
 }
