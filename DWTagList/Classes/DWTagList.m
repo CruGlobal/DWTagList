@@ -22,6 +22,10 @@
 #define BORDER_WIDTH 1.0f
 #define HIGHLIGHTED_BACKGROUND_COLOR [UIColor colorWithRed:0.40 green:0.80 blue:1.00 alpha:0.5]
 #define DEFAULT_AUTOMATIC_RESIZE NO
+#define TAG_SHADOW_COLOR [UIColor blackColor].CGColor
+#define TAG_SHADOW_OFFSET CGSizeMake(0.0f, 1.0f)
+#define TAG_SHADOW_RADIUS 1.0f
+#define TAG_SHADOW_OPACITY 0.75f
 
 @interface DWTagList()
 
@@ -255,16 +259,16 @@
         [_button setFrame:self.frame];
         [self addSubview:_button];
         
-        [self.layer setMasksToBounds:YES];
-        [self.layer setCornerRadius:CORNER_RADIUS];
-        [self.layer setBorderColor:BORDER_COLOR];
-        [self.layer setBorderWidth: BORDER_WIDTH];
+        //[self.layer setMasksToBounds:YES];
+        self.layer.cornerRadius		= CORNER_RADIUS;
+        self.layer.borderColor		= BORDER_COLOR;
+        self.layer.borderWidth		= BORDER_WIDTH;
 		
 		//Drop shadow : black with a 2px y-offset and a 2px blur, at 0.75 opacity
-		[self.layer setShadowColor:[[UIColor blackColor] CGColor]];
-		[self.layer setShadowOffset:CGSizeMake(0.0f, 1.0f)];
-		[self.layer setShadowRadius:1.0f];
-		[self.layer setShadowOpacity:0.75];
+		self.layer.shadowColor		= TAG_SHADOW_COLOR;
+		self.layer.shadowOffset		= TAG_SHADOW_OFFSET;
+		self.layer.shadowRadius		= TAG_SHADOW_RADIUS;
+		self.layer.shadowOpacity	= TAG_SHADOW_OPACITY;
 		
     }
     return self;
